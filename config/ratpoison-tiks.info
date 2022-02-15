@@ -1,0 +1,11 @@
+-- Ratpoison list --
+
+-- requiered --
+ratpoison dzen2 feh nitrogen dmenu lxappearance arc-theme papirus-icon-theme opendoas font-awesome5(ttf-font-awesome-5) hddtemp pcmanfm kitty picom ranger mc
+
+
+-- In case of installing picom, for its correct operation; it is configured in:
+doas nano /usr/share/examples/picom/picom.sample.conf
+    -- On Transparency/Opacity
+    inactive-opacity-override = true
+    # inactive-opacity-override = false;
