@@ -54,6 +54,12 @@ set bwcolor #000000
 escape Alt_L
 #---------------------------------------------#
 
+#   disable/enable winkey #
+alias mod4_off exec exec ratpoison -c 'undefinekey top Hyper_L' -c 'undefine key top Hyper_R' -c 'echo mod4 off'
+alias mod4_on  exec exec ratpoison -c 'definekey top Hyper_L readkey root' -c 'definekey top Hyper_R readkey root' -c 'echo mod4 on'
+bind Print mod4_off
+bind Pause mod4_on
+mod4_on
 
 
 # KEYBINDS (after escape keypress) #
