@@ -15,7 +15,7 @@ exec feh --bg-fill ~/Pictures/Varies/25.jpg
 exec /usr/bin/rpws init 9 -k                 
 exec setxkbmap -layout es
 exec picom --experimental-backend
-exec fcitx5
+#exec fcitx
 
 #Mouse
 exec ratpoison -c "banish"
@@ -64,7 +64,7 @@ bind M-R exec rofi -show drun
 bind M-D exec dmenu_run
 bind S-M-Return exec kitty
 bind M-M exec geary
-bind M-F exec Pcmanfm
+bind M-F exec thunar
 #-----------------------------------------------#
 
 #---------------------#
@@ -121,8 +121,6 @@ bind M-C-r restart
 bind M-C exec artix-logout
 bind M-W select  
 #----------------------------------#
-
-
 
 # RPWS (ratpoison workspaces) #
 #-----------------------------#
