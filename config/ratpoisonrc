@@ -51,7 +51,7 @@ set bwcolor #000000
 #---------------------------------------------#
 #       
 #Escape key
-escape Alt_L
+escape Super_L
 #---------------------------------------------#
 
 #   disable/enable winkey #
