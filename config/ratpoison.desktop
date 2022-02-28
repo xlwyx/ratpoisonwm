@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=ratpoison
+Comment=The tiling window manager
+Type=Application
+Exec=ratpoison
