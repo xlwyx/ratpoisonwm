@@ -66,9 +66,9 @@ mod4_on
 # KEYBINDS (after escape keypress) #
 #----------------------------------#
 # Applications                     #
-bind s-R exec rofi -show drun
+# bind s-R exec rofi -show drun
 bind s-D exec dmenu_run
-bind s-Return exec kitty
+bind s-Return exec wezterm
 bind s-M exec ~/mycelaneos
 bind s-F exec ~/shutdown
 #-----------------------------------------------#
