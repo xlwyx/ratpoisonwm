@@ -8,14 +8,13 @@
 #--------------------------------------------#
 #
 #Wallpaper
-exec feh --bg-fill ~/Pictures/Varies/1.jpg
-# nitrogen --restore
+exec feh --bg-fill ~/Pictures/piccas_img/GNU-Linux-animals.jpg
 
 #System
 exec /usr/bin/rpws init 9 -k                 
 exec setxkbmap -layout es
-exec picom --experimental-backend
-exec fcitx
+exec picom -cCFG
+exec fcitx -s 3
 exec xscreensaver -nosplash
 
 #Mouse
@@ -23,8 +22,8 @@ exec ratpoison -c "banish"
 exec /usr/share/ratpoison/sloppy
 
 #Bar
-exec "/home/lwy/./dzen2.sh" | dzen2 -ta r -fn roboto:style=italic -fg "#5f87af" -bg "#131313" 
-#exec echo "lwy" | dzen2 -p
+exec "/home/lwyx/./dzen2.sh" | dzen2 -ta r -fn roboto:style=italic -fg "#5f87af" -bg "#131313" 
+#exec echo "lwyx" | dzen2 -p
 #exec dzconky
 
 
@@ -119,8 +118,6 @@ bind s-4 rpwsm4
 bind s-5 rpwsm5
 bind s-6 rpwsm6
 bind s-7 rpwsm7
-bind s-8 rpwsm8
-bind s-9 rpwsm9
 bind s-Q kill
 
 # System info
@@ -153,11 +150,30 @@ bind 4 exec rpws 4
 bind 5 exec rpws 5
 bind 6 exec rpws 6
 bind 7 exec rpws 7
-bind 8 exec rpws 8
-bind 9 exec rpws 9
 bind s-Right exec rpws next
 bind S-Left exec rpws prev
 #-----------------------------#
+
+# RULES (ratpoison rules) #
+#-----------------------------#
+#--                             #
+ratpoisonctl rule class rule class Firefox tag 1 floater geometry 1000x800
+ratpoisonctl rule class leafpad tag 3 floater geometry 600x400
+ratpoisonctl rule class Notepadqq tag 3 floater geometry 600x400
+ratpoisonctl rule class pcmanfm tag 4 floater geometry 600x400
+ratpoisonctl rule class openoffice4 tag 4 floater geometry 900x650
+ratpoisonctl rule class org.wezfurlong.wezterm tag 4 floater geometry 900x650
+ratpoisonctl rule class pavucontrol floater geometry 480x620
+ratpoisonctl rule class Fcitx-config-gtk3 floater geometry 500x520 
+ratpoisonctl rule class TelegramDesktop tag 2 floater geometry 600x500
+ratpoisonctl rule class signal tag 2 floater geometry 600x500
+ratpoisonctl rule class whatsdesk tag 2 floater geometry 600x500
+ratpoisonctl rule class thunderbird tag 2 floater geometry 580x560
+ratpoisonctl rule class mGBA-qt tag 7 floater geometry 580x560
+ratpoisonctl rule class stella tag 7 floater geometry 580x560
+ratpoisonctl rule class simplescreenrecorder tag 6 floater geometry 700x560
+ratpoisonctl rule class mpv tag 5 floater geometry 600x560
+ratpoisonctl rule class vlc tag 5 floater geometry 600x560
 
 
 
