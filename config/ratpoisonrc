@@ -68,8 +68,8 @@ mod4_on
 # bind s-R exec rofi -show drun
 bind s-D exec dmenu_run
 bind s-Return exec wezterm
-bind s-M exec ~/mycelaneos
-bind s-F exec ~/shutdown
+bind s-I exec ~/mycelaneos
+bind s-P exec ~/shutdown
 #-----------------------------------------------#
 
 #---------------------#
