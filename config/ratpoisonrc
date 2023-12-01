@@ -15,7 +15,6 @@ exec /usr/bin/rpws init 9 -k
 exec setxkbmap -layout es
 exec picom -cCFG
 exec fcitx -s 3
-exec xscreensaver -nosplash
 
 #Mouse
 exec ratpoison -c "banish"
