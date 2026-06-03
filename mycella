@@ -1,0 +1,27 @@
+#!/bin/sh
+
+mycelaneos=$(echo -e "browser\nrange\nnrandr\ntext\nappearance\ncommander\nchat\nfiles\ngimp\ntg\ngba\nemul\nretro\nNDS\ncine" | dmenu -i -fn "Awesome-11" -nb "#649" -fn "#ff9926" -sb "#f91" -sf "#32f")
+
+case "$mycelaneos" in
+    # Applications will be normals (A native fullscreen of Ratpoison)
+    browser) waterfox ;;
+    gimp) gimp ;;
+    retro) retroarch ;;
+
+    # Applicacions that you want to force like FLOATINGS using CTWM
+    range)      tmpwm ctwm -- urxvt -e ranger ;;
+    randr)      tmpwm ctwm -- arandr ;;
+    text)       tmpwm ctwm -- mousepad ;;
+    appearance) tmpwm ctwm -- lxappearance ;;
+    commander)  tmpwm ctwm -- urxvt -e mc ;;
+    chat)       tmpwm ctwm -- tangram ;;
+    files)      tmpwm ctwm -- pcmanfm ;;
+    tg)         tmpwm ctwm -- telegram-desktop ;;
+    gba)        tmpwm ctwm -- mgba-qt ;;
+    emul)       tmpwm ctwm -- mednaffe ;;
+    NDS)        tmpwm ctwm -- desmume ;;
+    cine)       tmpwm ctwm -- xine dvd://dev/sr0 ;;
+
+    *) echo "No option has been selected" ;;
+esac
+
