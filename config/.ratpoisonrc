@@ -1,0 +1,216 @@
+#               PROJECT NAME: RatpoisonWM
+#
+# Config file:        ~/.ratpoisonrc
+#------------------------------------------------------------------------------
+
+
+# AUTOSTART #
+#--------------------------------------------#
+#
+#System
+exec /usr/bin/rpws init 9 -k
+exec setxkbmap -layout es
+exec picom --backend glx
+exec ~/.local/bin/start-pipewire.sh
+exec ~/disable-suspend.sh
+exec udiskie
+exec fcitx5 -d
+exec xrdb -merge ~/.Xresources
+
+#Wallpaper
+exec xwallpaper --stretch /home/fuzi/Pictures/piccas_img/Bandar_Malacca.jpg
+
+#Mouse
+exec ratpoison -c "banish"
+exec /usr/share/ratpoison/sloppy
+
+#Bar
+exec /home/fuzi/.config/dzen2.sh | dzen2 -ta r -fn "roboto:style=italic" -fg "#5f87af" -bg "#131313"
+#exec echo "fuzi" | dzen2 -p
+#exec dzconky
+
+
+# SETTINGS #
+#--------------------------------#
+#
+#Dialog box
+rudeness 13
+warp on
+set winname title
+set wingravity center
+set transgravity center
+set border 3
+set barborder 3
+set barpadding 1 1
+set padding 0 22 0 0
+set bargravity center
+set font "Roboto:size=16"
+set bgcolor #000000
+set fgcolor #477d8f
+set fwcolor #477d8f
+set bwcolor #000000
+
+# ESCAPE KEY (replace key chord C-t with Super/Win key) #
+#---------------------------------------------------------#
+escape Super_L
+
+# freedom Ctrl+t of the X11 root to working in the navegators
+undefinekey root C-t
+undefinekey top C-t
+#---------------------------------------------#
+
+# disable/enable winkey #
+alias mod4_off exec exec ratpoison -c 'undefinekey top Hyper_L' -c 'undefine key top Hyper_R' -c 'echo mod4 off'
+alias mod4_on  exec exec ratpoison -c 'definekey top Super_L readkey root' -c 'definekey top Super_R readkey root' -c 'echo mod4 on'
+bind Print mod4_off
+bind Pause mod4_on
+mod4_on
+
+
+# KEYBINDS (after escape keypress) #
+#----------------------------------#
+# Applications                     #
+bind s-D exec dmenu_run -c -l 20
+bind s-d exec dmenu_run
+bind s-Return exec alacritty
+bind s-I exec ~/mycella
+bind s-P exec ~/shutdown
+bind s-x exec ~/rec-scrot
+bind s-X exec ~/screenshot
+bind s-i exec betterlockscreen -l dimblur
+
+#-----------------------------------------------#
+
+#---------------------#
+# WINDOW MANIPULATION #
+#---------------------#
+
+# Window splits/resize
+bind S vsplit
+bind r hsplit
+bind R resize
+
+# Focus
+bind <UP> focusup
+bind <DOWN> focusdown
+bind <LEFT> focusleft
+bind <RIGHT> focusright
+
+# move windows
+unbind k
+bind j focusdown
+bind h focusleft
+bind k focusup
+bind l focusright
+bind s-j exchangedown
+bind s-h exchangeleft
+bind s-k exchangeup
+bind s-l exchangeright
+unbind c
+bind c delete
+unbind C
+bind C kill
+
+# Swap windows
+bind s-Right exchangeright
+bind s-Left exchangeleft
+bind s-Up exchangeup
+bind s-Down exchangedown
+bind s-S-Right rpwsmn
+bind s-S-Left rpwsmp
+
+# Send window to workspace 1-7
+bind s-1 rpwsm1
+bind s-2 rpwsm2
+bind s-3 rpwsm3
+bind s-4 rpwsm4
+bind s-5 rpwsm5
+bind s-6 rpwsm6
+bind s-7 rpwsm7
+bind s-Q kill
+
+# System info
+bind b exec notify-send -t 1500 $(battery)
+bind s-F1 help
+# Multimedia
+bind XF86MonBrightnessUp exec lux -a 10%
+bind XF86MonBrightnessDown exec lux -s 10%
+bind XF86AudioRaiseVolume exec volchange.sh volup
+bind XF86AudioLowerVolume exec volchange.sh voldown
+bind XF86AudioMute exec volchange.sh volmute
+bind XF86AudioPlay exec playerctl play-pause
+bind XF86AudioNext exec playerctl next
+bind XF86AudioPrev exec playerctl previous
+bind s-S exec playerctl stop
+
+bind s-T tmpwm ctwm
+bind s-C-r restart
+bind s-C exec doas logout
+bind s-W select
+
+# Create window groups
+grename default www
+gadd konsol
+gadd mel
+gadd fail
+gadd multimedia
+gadd reka_bentuk
+gadd permainan
+
+#----------------------------------#
+
+# RPWS (ratpoison workspaces) #
+#-----------------------------#
+#--                             #
+bind 1 exec rpws 1
+bind 2 exec rpws 2
+bind 3 exec rpws 3
+bind 4 exec rpws 4
+bind 5 exec rpws 5
+bind 6 exec rpws 6
+bind 7 exec rpws 7
+bind s-Right exec rpws next
+bind S-Left exec rpws prev
+#-----------------------------#
+
+# Floating clients #
+#---------------------------------------------------------------------------#
+#--
+bind v exec tmpwm ctwm -- pavucontrol
+bind m exec tmpwm ctwm -- mednaffe
+bind n exec tmpwm ctwm -- mednafen
+bind o exec tmpwm ctwm -- mousepad
+bind y exec tmpwm ctwm -- connman-gtk
+bind t exec tmpwm ctwm -- galculator
+bind e exec tmpwm ctwm -- blanket
+bind f exec tmpwm ctwm -- urxvt
+bind j exec tmpwm ctwm -- melonds
+
+#--------------------------------------------------------#
+
+# AUTOMATED TARGET LAUNCHERS (Change Group + Window Floating)
+#------------------------------------------------------------------#
+alias launch_games exec ratpoison -c "gselect www" -- waterfox
+alias launch_games exec ratpoison -c "gselect konsol" -- alacritty
+alias launch_games exec ratpoison -c "gselect multimedia" -- xine
+alias launch_games exec ratpoison -c "gselect mel" -- telegram-desktop
+alias launch_games exec ratpoison -c "gselect mel" -- signal
+alias launch_pavu exec ratpoison -c "gselect fail" && tmpwm ctwm -- pavucontrol
+alias launch_games exec ratpoison -c "gselect permainan" && tmpwm ctwm -- mednafen
+alias launch_games exec ratpoison -c "gselect permainan" && tmpwm ctwm -- mednaffe
+alias launch_note exec ratpoison -c "gselect fail" && tmpwm ctwm -- mousepad
+alias launch_connman exec ratpoison -c "gselect konsol" && tmpwm ctwm -- connman-gtk
+alias launch_calc exec ratpoison -c "gselect fail" && tmpwm ctwm -- galculator
+alias launch_util exec ratpoison -c "gselect multimedia" && tmpwm ctwm -- blanket
+alias launch_games exec ratpoison -c "gselect permainan" && tmpwm ctwm -- urxvt
+alias launch_pdf exec ratpoison -c "gselect fail" -- zathura
+alias launch_games exec ratpoison -c "gselect permainan" -- melonds
+alias launch_design exec ratpoison -c "gselect reka_betuk" -- gimp
+alias launch_design exec ratpoison -c "gselect reka_bentuk" -- inkscape
+
+bind v launch_pavu
+bind g launch_games
+#------------------------------------------------------#
+
+
+
